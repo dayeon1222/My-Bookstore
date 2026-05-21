@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import * as S from './loading.styles';
+import * as S from '@/src/styles/skeleton.styles';
 
 export default function Loading() {
 	return (

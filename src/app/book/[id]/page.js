@@ -9,6 +9,17 @@ import * as Reader from '@/src/styles/reader.styles';
 import * as Ending from '@/src/components/book/EndingLayers';
 import * as BookReader from '@/src/components/book/BookReader';
 
+export async function generateMetadata({ params }) {
+	const resolvedParams = await params;
+	const id = resolvedParams.id;
+	const story = stories[id];
+
+	return {
+		// 책 데이터가 존재하면 "책 제목 | 나의 서재", 없으면 기본값 출력
+		title: story ? `${story.title} | 나의 서재` : '이야기 서재',
+	};
+}
+
 export default function BookDetailPage({ params }) {
 	const router = useRouter(); //페이지 이동을 위한 라우터
 	const { id } = use(params);

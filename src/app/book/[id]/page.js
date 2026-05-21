@@ -57,6 +57,21 @@ export default function BookDetailPage({ params }) {
 	//---------------렌더링------------------
 	return (
 		<Reader.FullContainer $isMole={isMoleStory}>
+			{/* Spotlight 특정 스토리 + 엔딩 레이어 아닐때만 표시 */}
+			{isMoleStory && !showInvitation && !showFinalGift && (
+				<Spotlight
+					$opacity={isCover ? 0.8 : (pageData?.opacity ?? 1)}
+					key={`spotlight-${currentPage}`}
+				/>
+			)}
+
+			{/* 초대장 레이어  */}
+			{showInvitation && !showFinalGift && (
+				<Ending.Invitation onAccept={() => setShowFinalGift(true)} />
+			)}
+			{/* 최종 선물 레이어 */}
+			{showFinalGift && <Ending.FinalGift onHome={() => router.push('/')} />}
+
 			{/* 홈 버튼 */}
 			<Reader.HomeButton onClick={() => router.push('/')} $isMole={isMoleStory}>
 				<svg
@@ -73,20 +88,6 @@ export default function BookDetailPage({ params }) {
 				<span>서재</span>
 			</Reader.HomeButton>
 
-			{/* Spotlight 특정 스토리 + 엔딩 레이어 아닐때만 표시 */}
-			{isMoleStory && !showInvitation && !showFinalGift && (
-				<Spotlight
-					$opacity={isCover ? 0.8 : (pageData?.opacity ?? 1)}
-					key={`spotlight-${currentPage}`}
-				/>
-			)}
-
-			{/* 초대장 레이어  */}
-			{showInvitation && !showFinalGift && (
-				<Ending.Invitation onAccept={() => setShowFinalGift(true)} />
-			)}
-			{/* 최종 선물 레이어 */}
-			{showFinalGift && <Ending.FinalGift onHome={() => router.push('/')} />}
 			{/* 하단 네비게이션 */}
 			<BookReader.BookNav
 				isCover={isCover}

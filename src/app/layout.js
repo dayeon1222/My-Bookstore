@@ -1,6 +1,7 @@
 'use client';
 
 import { createGlobalStyle } from 'styled-components';
+import StyledComponentsRegistry from '../lib/registry';
 
 const GlobalStyle = createGlobalStyle`
   img {
@@ -22,8 +23,10 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="ko">
 			<body>
-				<GlobalStyle />
-				{children}
+				<StyledComponentsRegistry>
+					<GlobalStyle />
+					{children}
+				</StyledComponentsRegistry>
 			</body>
 		</html>
 	);

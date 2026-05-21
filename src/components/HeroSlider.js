@@ -14,7 +14,7 @@ export default function HeroSlider({ bookList }) {
 			'이곳은 단순히 이야기를 읽는 곳이 아니라,\n천천히 당신의 마음을 움직이는 연습을 하는 공간입니다.',
 		mainImage: '/images/main.png',
 		isIntro: true,
-		bgColor: '#ffffff', // 인트로 배경색도 추가해주면 좋아요!
+		bgColor: '#ffffff',
 		isDark: false,
 	};
 

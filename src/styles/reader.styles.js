@@ -24,7 +24,7 @@ export const HomeButton = styled.button`
 	position: absolute;
 	top: 20px;
 	left: 20px;
-	z-index: 1000;
+	z-index: 9999;
 	display: flex;
 	align-items: center;
 	gap: 8px;

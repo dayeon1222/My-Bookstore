@@ -106,7 +106,7 @@ export const FixedUI = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 25px;
-	z-index: 500;
+	z-index: 9999;
 
 	//태블릿
 	@media (max-width: 768px) {
